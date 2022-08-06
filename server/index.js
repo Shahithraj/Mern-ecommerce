@@ -23,7 +23,17 @@ app.get('/api/products/slug', (req, res) => {
   if (product) {
     res.status(200).send(product);
   } else {
-    res.status(404).send('Product Not Found!');
+    res.status(404).send({message:'Product Not Found!'});
+  }
+});
+
+app.get('/api/products/id', (req, res) => {
+  const { id } = req.query;
+  let product = data.products.find((x) => x.id === id);
+  if (product) {
+    res.status(200).send(product);
+  } else {
+    res.status(404).send({message:'Product Not Found!'});
   }
 });
 
