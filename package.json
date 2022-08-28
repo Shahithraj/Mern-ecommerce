@@ -1,0 +1,21 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "1. Create React App\r 2. GIT Repository\r 3. List Products \r    - create products array\r    - add products images\r    - render products\r    - style products\r 4. Create Node.JS Server\r    1. run npm init in root folder\r    2. Update package.json set type: module \r    3. Add .js to imports\r    4. npm install express\r    5. create index.js\r    6. add start command as node backend/server.js\r    7. require express\r    8. create route for / return backend is ready.\r    9. move products.js from frontend to backend\r    10. create route for /api/products\r    11. return products\r    12. run npm start",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd server && npm install  && cd ../client && npm install && npm run build",
+    "start": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shahithraj/Mern-ecommerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shahithraj/Mern-ecommerce/issues"
+  },
+  "homepage": "https://github.com/Shahithraj/Mern-ecommerce#readme"
+}
