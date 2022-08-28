@@ -6,13 +6,12 @@ const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
 
 router.post('/product', async (req, res) => {
-  console.log(req.body);
   const products = new Product(req.body);
   try {
     const createdProducts = await products.save();
     res.status(201).json(createdProducts);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).send({ message: 'Something went wrong' });
   }
 });
 
@@ -28,7 +27,7 @@ router.post('/signup', async (req, res) => {
       const createdUser = await newUser.save();
       res.status(201).json(createdUser);
     } catch (err) {
-      res.status(500).json(err);
+      res.status(500).send({ message: 'Something went wrong' });
     }
   }
 });

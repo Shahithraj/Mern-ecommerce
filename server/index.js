@@ -9,6 +9,7 @@ const seedRouter = require("./routes/seedRoutes")
 const productRouter = require("./routes/productRouter")
 const userRouter = require("./routes/userRouter")
 const orderRouter = require("./routes/orderRouter")
+const path = require("path")
 
 
 dotenv.config();
@@ -23,13 +24,22 @@ mongoose
     console.error(err);
   });
 
+
+
+app.get('/api/keys/paypal',(req,res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID || 'sb')
+})
   app.use('/api/create/product',seedRouter)
   app.use('/api/products',productRouter)
   app.use('/api/create',seedRouter)
-  app.use('/api/login',userRouter)
+  app.use('/api',userRouter)
   app.use('/api/order',orderRouter)
   
-
+  const __dirname = path.resolve()
+  app.use(express.static(path.join(__dirname,'/client/build')))
+  app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '/client/build/index.html'))
+);
 app.get('/', (req, res) => {
   res.send('Hello from Ecommerce');
 });

@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     res.status(200).send(products);
   } catch (err) {
     console.log(err);
-    res.status(500).send(err);
+    res.status(500).send({ message: 'Something went wrong' });
   }
 });
 
@@ -19,7 +19,7 @@ router.get('/slug', async (req, res) => {
     if (product) {
       res.status(200).send(product);
     } else {
-      res.status(404).send({ message: 'Product Not Found!' });
+      res.status(404).send({ message: 'Something went wrong' });
     }
   } catch (err) {
     res.status(500).send({ message: err });
@@ -29,14 +29,14 @@ router.get('/slug', async (req, res) => {
 router.get('/id', async (req, res) => {
   const { id } = req.query;
   try {
-    let product = await Product.findById(id);
+    let product = await Product.findOne({id:id});
     if (product) {
       res.status(200).send(product);
     } else {
       res.status(404).send({ message: 'Product Not Found!' });
     }
   } catch (err) {
-    res.status(500).send({ message: err });
+    res.status(500).send({ message: 'Something went wrong' });
   }
 });
 

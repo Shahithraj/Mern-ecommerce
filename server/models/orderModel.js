@@ -12,12 +12,12 @@ const orderSchema = new mongoose.Schema(
         product: {
           type: mongoose.Schema.Types.ObjectId,
           ref: 'Product',
-          required: True,
+          required: true,
         },
       },
     ],
     shippingAddress: {
-      Name: { type: String, required: true },
+      name: { type: String, required: true },
       address: { type: String, required: true },
       city: { type: String, required: true },
       pincode: { type: String, required: true },
