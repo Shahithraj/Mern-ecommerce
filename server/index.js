@@ -35,7 +35,7 @@ app.get('/api/keys/paypal',(req,res) => {
   app.use('/api',userRouter)
   app.use('/api/order',orderRouter)
   
-  const __dirname = path.resolve()
+  // const __dirname = path.resolve()
   app.use(express.static(path.join(__dirname,'/client/build')))
   app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '/client/build/index.html'))
